@@ -12,6 +12,7 @@
         <module>library</module>
         <module>application</module>
         <module>portal</module>
+        <module>apps-service</module>        
     </modules>
 
 </project>
