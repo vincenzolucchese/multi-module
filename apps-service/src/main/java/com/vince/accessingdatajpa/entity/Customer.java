@@ -1,4 +1,4 @@
-package com.vince.accessingdatajpa;
+package com.vince.accessingdatajpa.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -14,6 +14,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+import com.vince.accessingdatajpa.entity.Customer;
+import com.vince.accessingdatajpa.repository.CustomerRepository;
 import com.zaxxer.hikari.HikariDataSource;
 
 @SpringBootApplication

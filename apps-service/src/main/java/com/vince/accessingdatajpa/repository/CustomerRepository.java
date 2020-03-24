@@ -1,9 +1,11 @@
-package com.vince.accessingdatajpa;
+package com.vince.accessingdatajpa.repository;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
+
+import com.vince.accessingdatajpa.entity.Customer;
 
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 

@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.context.annotation.Bean;
 
-import com.vince.accessingdatajpa.CustomerService;
-import com.vince.accessingdatajpa.CustomerServiceImpl;
+import com.vince.accessingdatajpa.service.CustomerService;
+import com.vince.accessingdatajpa.service.impl.CustomerServiceImpl;
 import com.zaxxer.hikari.HikariDataSource;
 
 @SpringBootApplication(scanBasePackages = {"com.vince.accessingdatajpa", "com.vince.portal.application"})

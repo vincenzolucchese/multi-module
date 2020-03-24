@@ -25,8 +25,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-import com.vince.accessingdatajpa.Customer;
-import com.vince.accessingdatajpa.CustomerRepository;
+import com.vince.accessingdatajpa.entity.Customer;
+import com.vince.accessingdatajpa.repository.CustomerRepository;
 
 @DataJpaTest
 public class CustomerRepositoryTests {
