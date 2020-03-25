@@ -10,9 +10,10 @@
 
     <modules>
         <module>library</module>
-        <module>application</module>
-        <module>portal</module>
+        <module>application</module>        
         <module>apps-service</module>        
+        <module>apps-facade</module>
+        <module>portal</module>
     </modules>
 
 </project>

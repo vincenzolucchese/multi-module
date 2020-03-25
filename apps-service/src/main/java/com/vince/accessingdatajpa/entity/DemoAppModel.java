@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class DemoApp {
+public class DemoAppModel {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -99,7 +99,7 @@ public class DemoApp {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DemoApp other = (DemoApp) obj;
+		DemoAppModel other = (DemoAppModel) obj;
 		if (briefDescription == null) {
 			if (other.briefDescription != null)
 				return false;

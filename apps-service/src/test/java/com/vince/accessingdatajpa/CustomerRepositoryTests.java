@@ -25,7 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-import com.vince.accessingdatajpa.entity.Customer;
+import com.vince.accessingdatajpa.entity.CustomerModel;
 import com.vince.accessingdatajpa.repository.CustomerRepository;
 
 @DataJpaTest
@@ -38,11 +38,11 @@ public class CustomerRepositoryTests {
 
 	@Test
 	public void testFindByLastName() {
-		Customer customer = new Customer("first", "last");
+		CustomerModel customer = new CustomerModel("first", "last");
 		entityManager.persist(customer);
 
-		List<Customer> findByLastName = customers.findByLastName(customer.getLastName());
+		List<CustomerModel> findByLastName = customers.findByLastName(customer.getLastName());
 
-		assertThat(findByLastName).extracting(Customer::getLastName).containsOnly(customer.getLastName());
+		assertThat(findByLastName).extracting(CustomerModel::getLastName).containsOnly(customer.getLastName());
 	}
 }

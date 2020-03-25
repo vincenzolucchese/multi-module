@@ -2,15 +2,9 @@ package com.vince.portal.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
-import org.springframework.context.annotation.Bean;
 
-import com.vince.accessingdatajpa.service.CustomerService;
-import com.vince.accessingdatajpa.service.impl.CustomerServiceImpl;
-import com.zaxxer.hikari.HikariDataSource;
-
-@SpringBootApplication(scanBasePackages = {"com.vince.accessingdatajpa", "com.vince.portal.application"})
-//@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.vince.multimodule",
+		"com.vince.accessingdatajpa", "com.vince.portal.application"})
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
