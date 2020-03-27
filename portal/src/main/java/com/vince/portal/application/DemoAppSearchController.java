@@ -10,17 +10,19 @@ import com.vince.multimodule.facade.DemoAppFacade;
 
 
 @Controller
-public class HelloController {
+public class DemoAppSearchController {
 	
-	private static final String PAGE_RETURN 		= "index";
+	private static final String PAGE_RETURN 		= "demoAppSearch";
 	
 	@Autowired
 	private DemoAppFacade demoAppFacade;
 	
-    @GetMapping({"/", "/hello"})
+    @GetMapping({"/portfolio/search"})
     public String hello(Model model,
                         @RequestParam(value="name", required=false, defaultValue="World") String name) {
-        model.addAttribute("name", name);        
+        model.addAttribute("name", name);
+        
+       
         return PAGE_RETURN;
     }
 }
