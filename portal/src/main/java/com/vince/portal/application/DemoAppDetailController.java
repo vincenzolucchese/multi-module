@@ -31,18 +31,18 @@ public class DemoAppDetailController {
     @GetMapping({"/portfolio/new"})
     public String createGet(Model model,
                         @RequestParam(value="code", required=false, defaultValue="World") String name) {
-        model.addAttribute("demoApp", new DemoAppData());
-        
-       
+        model.addAttribute("demoApp", new DemoAppData());       
         return PAGE_RETURN;
     }
     
     @PostMapping({"/portfolio/new"})
-    public String createPost(Model model,
-                        @RequestParam(value="code", required=false, defaultValue="World") String name) {
-        model.addAttribute("demoApp", new DemoAppData());
-        
+    public String createPost(Model model, DemoAppData demoApp ) {
        
+    	demoApp = demoAppFacade.save(demoApp);
+    	model.addAttribute("demoApp", demoApp);  
+    	
+    	demoAppFacade.search(demoApp);
+    	
         return PAGE_RETURN;
     }
 }
