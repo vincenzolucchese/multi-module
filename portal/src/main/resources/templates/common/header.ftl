@@ -54,10 +54,8 @@
                       <li class="dropdown">
                         <a href="#">Portfolio</a>
                         <ul class="dropdown-menu">
-                          <li><a href="portfolio-2cols.html">Portfolio 2 columns</a></li>
-                          <li><a href="portfolio-3cols.html">Portfolio 3 columns</a></li>
-                          <li><a href="portfolio-4cols.html">Portfolio 4 columns</a></li>
-                          <li><a href="portfolio-detail.html">Portfolio detail</a></li>
+                          <li><a href="portfolio/search">Portfolio</a></li>
+                          <li><a href="portfolio/new">New App</a></li>
                         </ul>
                       </li>
                       <li class="dropdown">
