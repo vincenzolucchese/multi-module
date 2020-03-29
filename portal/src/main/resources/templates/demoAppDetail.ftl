@@ -68,7 +68,7 @@
 
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
-          <form action="/portfolio/new" method="post" role="form" class="contactForm" >
+          <form action="/portal/portfolio/new" method="post" role="form" class="contactForm" >
             <div class="row">
               <div class="span3 form-group">
                 <input type="text" name="code" class="form-control" id="code" placeholder="code" 
@@ -86,6 +86,15 @@
 				<@spring.formSingleSelect "demoApp.codeCategory.id", categoryList, 'class="form-control"'/>
                 <div class="validation"></div>
               </div>
+              
+              <div class="span9 form-group"></div>
+              
+              
+             <div class="span3 form-group">
+                <input type="text" class="form-control" name="link" id="link" placeholder="link" 
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>   
               
               
               <div class="span9 form-group">

@@ -1,10 +1,9 @@
-package com.vince.portal.application;
+package com.vince.portal.controller;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,20 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.vince.multimodule.data.CategoryData;
 import com.vince.multimodule.data.DemoAppData;
-import com.vince.multimodule.facade.CategoryFacade;
-import com.vince.multimodule.facade.DemoAppFacade;
+import com.vince.portal.abs.controller.AbstractDetailController;
 
 
 @Controller
-public class DemoAppDetailController {
+public class DemoAppDetailController extends AbstractDetailController {
 	
 	private static final String PAGE_RETURN 		= "demoAppDetail";
-	
-	@Autowired
-	private DemoAppFacade demoAppFacade;
-	
-	@Autowired
-	private CategoryFacade categoryFacade;
 	
     @GetMapping({"/portfolio/detail"})
     public String hello(Model model,

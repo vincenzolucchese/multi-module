@@ -88,23 +88,23 @@
     </div>
   </footer>
 
-  <script src="/js/jquery.js"></script>
-  <script src="/js/modernizr.js"></script>
-  <script src="/js/jquery.easing.1.3.js"></script>
-  <script src="/js/google-code-prettify/prettify.js"></script>
-  <script src="/js/bootstrap.js"></script>
-  <script src="/js/jquery.prettyPhoto.js"></script>
-  <script src="/js/portfolio/jquery.quicksand.js"></script>
-  <script src="/js/portfolio/setting.js"></script>
-  <script src="/js/hover/jquery-hover-effect.js"></script>
-  <script src="/js/jquery.flexslider.js"></script>
-  <script src="/js/classie.js"></script>
-  <script src="/js/cbpAnimatedHeader.min.js"></script>
-  <script src="/js/jquery.refineslide.js"></script>
-  <script src="/js/jquery.ui.totop.js"></script>
+  <script src="<@spring.url '/js/jquery.js'/>"></script>
+  <script src="<@spring.url '/js/modernizr.js'/>"></script>
+  <script src="<@spring.url '/js/jquery.easing.1.3.js'/>"></script>
+  <script src="<@spring.url '/js/google-code-prettify/prettify.js'/>"></script>
+  <script src="<@spring.url '/js/bootstrap.js'/>"></script>
+  <script src="<@spring.url '/js/jquery.prettyPhoto.js'/>"></script>
+  <script src="<@spring.url '/js/portfolio/jquery.quicksand.js'/>"></script>
+  <script src="<@spring.url '/js/portfolio/setting.js'/>"></script>
+  <script src="<@spring.url '/js/hover/jquery-hover-effect.js'/>"></script>
+  <script src="<@spring.url '/js/jquery.flexslider.js'/>"></script>
+  <script src="<@spring.url '/js/classie.js'/>"></script>
+  <script src="<@spring.url '/js/cbpAnimatedHeader.min.js'/>"></script>
+  <script src="<@spring.url '/js/jquery.refineslide.js'/>"></script>
+  <script src="<@spring.url '/js/jquery.ui.totop.js'/>"></script>
 
   <!-- Template Custom Javascript File -->
-  <script src="/js/custom.js"></script>
+  <script src="<@spring.url '/js/custom.js'/>"></script>
 
 </body>
 
