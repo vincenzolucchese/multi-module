@@ -49,13 +49,12 @@ public class AccessingDataJpaApplication {
 
 	private void populate() {
 		List<CategoryModel> categoryModelList = (List<CategoryModel>) categoryRepository.findAll();
-		
+		log.info("-------------------------------");		
 		if(CollectionUtils.isEmpty(categoryModelList)) {
+			log.info("CategoryModel is empty.");
 			categoryRepository.save(new CategoryModel("WEB", "Web app"));
 			categoryRepository.save(new CategoryModel("OTHER", "Other"));
-		}
-
-		log.info("-------------------------------");
+		}		
 		for (CategoryModel each : categoryRepository.findAll()) {
 			log.info(each.toString());
 		}

@@ -9,7 +9,7 @@ public class DemoAppData {
 	private String name;
 	private String description;
 	private String briefDescription;
-	private String codeCategory;
+	private CategoryData codeCategory;
 	private Date date;
 	private String link;
 	private String status;
@@ -44,10 +44,10 @@ public class DemoAppData {
 	public void setBriefDescription(String briefDescription) {
 		this.briefDescription = briefDescription;
 	}
-	public String getCodeCategory() {
+	public CategoryData getCodeCategory() {
 		return codeCategory;
 	}
-	public void setCodeCategory(String codeCategory) {
+	public void setCodeCategory(CategoryData codeCategory) {
 		this.codeCategory = codeCategory;
 	}
 	public Date getDate() {

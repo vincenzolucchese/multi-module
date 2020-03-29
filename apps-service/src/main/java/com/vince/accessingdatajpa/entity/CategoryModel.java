@@ -1,10 +1,15 @@
 package com.vince.accessingdatajpa.entity;
 
-import javax.persistence.Column;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class CategoryModel {
@@ -15,8 +20,15 @@ public class CategoryModel {
 
 	private String code;
 	private String description;
+	
+	@OneToMany(mappedBy = "codeCategory")
+    private Set<DemoAppModel> demoApp;
 
 	protected CategoryModel() {}
+	
+	public CategoryModel(Long id) {
+		this.id = id;
+	}
 
 	public CategoryModel(String code, String description) {
 		this.code = code;
@@ -43,6 +55,23 @@ public class CategoryModel {
 	public String toString() {
 		return "CategoryModel [id=" + id + ", code=" + code + ", description=" + description + "]";
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Set<DemoAppModel> getDemoApp() {
+		return demoApp;
+	}
+
+	public void setDemoApp(Set<DemoAppModel> demoApp) {
+		this.demoApp = demoApp;
+	}
+	
 
 
 }

@@ -1,5 +1,9 @@
 package com.vince.portal.application;
 
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,7 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.vince.multimodule.data.CategoryData;
 import com.vince.multimodule.data.DemoAppData;
+import com.vince.multimodule.facade.CategoryFacade;
 import com.vince.multimodule.facade.DemoAppFacade;
 
 
@@ -18,6 +24,9 @@ public class DemoAppDetailController {
 	
 	@Autowired
 	private DemoAppFacade demoAppFacade;
+	
+	@Autowired
+	private CategoryFacade categoryFacade;
 	
     @GetMapping({"/portfolio/detail"})
     public String hello(Model model,
@@ -31,7 +40,9 @@ public class DemoAppDetailController {
     @GetMapping({"/portfolio/new"})
     public String createGet(Model model,
                         @RequestParam(value="code", required=false, defaultValue="World") String name) {
-        model.addAttribute("demoApp", new DemoAppData());       
+        model.addAttribute("demoApp", new DemoAppData());   
+        model.addAttribute("categoryList", getAllCategory()); 
+        
         return PAGE_RETURN;
     }
     
@@ -40,9 +51,21 @@ public class DemoAppDetailController {
        
     	demoApp = demoAppFacade.save(demoApp);
     	model.addAttribute("demoApp", demoApp);  
-    	
-    	demoAppFacade.search(demoApp);
+    	model.addAttribute("categoryList", getAllCategory());
     	
         return PAGE_RETURN;
+    }
+    
+    
+    private Map<String, String> getAllCategory() {
+		Collection<CategoryData> listData = categoryFacade.findAll();
+		
+		Map<String,String> map = new LinkedHashMap<String,String>();
+		map.put("", "");
+		for (CategoryData each : listData) {
+			map.put(""+each.getId(), each.getDescription());			
+		}
+		
+		return map;
     }
 }

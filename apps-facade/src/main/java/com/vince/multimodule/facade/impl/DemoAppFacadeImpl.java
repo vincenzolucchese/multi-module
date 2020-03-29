@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import com.vince.accessingdatajpa.entity.CategoryModel;
 import com.vince.accessingdatajpa.entity.DemoAppModel;
+import com.vince.accessingdatajpa.repository.CategoryRepository;
 import com.vince.accessingdatajpa.service.DemoAppService;
 import com.vince.multimodule.data.DemoAppData;
 import com.vince.multimodule.facade.DemoAppFacade;
@@ -18,11 +20,17 @@ public class DemoAppFacadeImpl implements DemoAppFacade {
 	
 	@Autowired
 	private DemoAppService demoAppService;
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
 
 	@Override
 	public DemoAppData save(DemoAppData demoAppData) {
 		DemoAppModel entity = new DemoAppModel();
 		BeanUtils.copyProperties(demoAppData, entity);
+		CategoryModel categoryModel = new CategoryModel(demoAppData.getCodeCategory().getId());
+		
+		entity.setCodeCategory(categoryModel);
 		entity = demoAppService.getRepository().save(entity);
 		
 		DemoAppData dataReturn = new DemoAppData();
