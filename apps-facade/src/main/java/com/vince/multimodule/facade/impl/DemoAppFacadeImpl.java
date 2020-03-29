@@ -26,7 +26,7 @@ public class DemoAppFacadeImpl implements DemoAppFacade {
 		entity = demoAppService.getRepository().save(entity);
 		
 		DemoAppData dataReturn = new DemoAppData();
-		BeanUtils.copyProperties(dataReturn, entity);
+		BeanUtils.copyProperties(entity, dataReturn);
 		return dataReturn;
 	}
 
@@ -41,7 +41,7 @@ public class DemoAppFacadeImpl implements DemoAppFacade {
 			listReturn = new ArrayList<>();
 			for (DemoAppModel each : listResult) {
 				DemoAppData dataReturn = new DemoAppData();
-				BeanUtils.copyProperties(dataReturn, entity);
+				BeanUtils.copyProperties(each, dataReturn);
 				listReturn.add(dataReturn);
 			}
 		}		

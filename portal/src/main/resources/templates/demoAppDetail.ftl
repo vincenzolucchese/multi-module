@@ -78,7 +78,14 @@
                 <input type="text" class="form-control" name="name" id="name" placeholder="name" 
                 data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validation"></div>
+              </div>              
+
+              <div class="span4 form-group">
+                <input type="text" class="form-control" name="name" id="name" placeholder="name" 
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
               </div>
+              
               
               <div class="span8 form-group">
                 <textarea class="form-control" name="briefDescription" rows="5" data-rule="required" 
@@ -92,9 +99,10 @@
                 <div class="validation"></div>
               </div>
 
-                <div class="text-center">
-                  <button class="btn btn-color btn-rounded" type="submit">Send message</button>
-                </div>
+               <div class="span8 form-group">
+                 <button class="btn btn-color btn-rounded" type="submit">Send message</button>
+               </div>
+               
               </div>
             </div>
           </form>
