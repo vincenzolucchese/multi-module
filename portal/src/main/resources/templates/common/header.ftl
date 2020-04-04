@@ -54,8 +54,8 @@
                       <li class="dropdown">
                         <a href="#">Portfolio</a>
                         <ul class="dropdown-menu">
-                          <li><a href="/portal/portfolio/search">Portfolio</a></li>
-                          <li><a href="/portal/portfolio/new">New App</a></li>
+                          <li><a href="<@spring.url '/portfolio/search'/>">Portfolio</a></li>
+                          <li><a href="<@spring.url '/portfolio/new'/>">New App</a></li>
                         </ul>
                       </li>
                       <li class="dropdown">

@@ -18,15 +18,15 @@ import com.vince.portal.abs.controller.AbstractDetailController;
 @Controller
 public class DemoAppDetailController extends AbstractDetailController {
 	
-	private static final String PAGE_RETURN 		= "demoAppDetail";
+	private static final String PAGE_RETURN 			= "demoAppDetail";
+	private static final String PAGE_RETURN_STATUS 		= "demoAppStatus";
 	
     @GetMapping({"/portfolio/detail"})
     public String hello(Model model,
-                        @RequestParam(value="code", required=true, defaultValue="World") String name) {
-        model.addAttribute("name", name);
-        
+                        @RequestParam(value="code", required=true, defaultValue="World") String code) {
+        model.addAttribute("demoApp", demoAppFacade.findByCode(code));        
        
-        return PAGE_RETURN;
+        return PAGE_RETURN_STATUS;
     }
     
     @GetMapping({"/portfolio/new"})

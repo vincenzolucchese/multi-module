@@ -14,7 +14,7 @@ import com.vince.multimodule.data.CategoryData;
 import com.vince.multimodule.facade.CategoryFacade;
 
 @Service
-public class DomainFacadeImpl implements CategoryFacade {
+public class CategoryFacadeImpl implements CategoryFacade {
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
@@ -25,12 +25,16 @@ public class DomainFacadeImpl implements CategoryFacade {
 		List<CategoryModel> listModel = (List<CategoryModel>) categoryRepository.findAll();
 		if(!CollectionUtils.isEmpty(listModel)) {
 			for (CategoryModel each : listModel) {
-				CategoryData category = new CategoryData();
-				BeanUtils.copyProperties(each, category);
-				listData.add(category);				
+				listData.add(convertModelToData(each));				
 			}
 		}
 		return listData;
+	}
+	
+	public static CategoryData convertModelToData(CategoryModel model) {
+		CategoryData category = new CategoryData();
+		BeanUtils.copyProperties(model, category);
+		return category;
 	}
 
 

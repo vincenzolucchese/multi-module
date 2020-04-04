@@ -48,12 +48,28 @@ public class DemoAppFacadeImpl implements DemoAppFacade {
 		if(!CollectionUtils.isEmpty(listResult)) {
 			listReturn = new ArrayList<>();
 			for (DemoAppModel each : listResult) {
-				DemoAppData dataReturn = new DemoAppData();
-				BeanUtils.copyProperties(each, dataReturn);
-				listReturn.add(dataReturn);
+				listReturn.add(convertModelToData(each));
 			}
 		}		
 		return listReturn;
+	}
+	
+	public static DemoAppData convertModelToData(DemoAppModel model) {
+		DemoAppData data = new DemoAppData();
+		BeanUtils.copyProperties(model, data);
+		
+		data.setCodeCategory(CategoryFacadeImpl.convertModelToData(model.getCodeCategory()));
+		return data;
+	}
+
+	@Override
+	public DemoAppData findByCode(String code) {
+		DemoAppModel model = demoAppService.findByCode(code);
+
+		if(model!=null) {
+			return convertModelToData(model);
+		}		
+		return null;
 	}
 
 }
