@@ -31,6 +31,22 @@
             <div class="clearfix">
             </div>
             <div class="row">
+              <div class="span4">
+                <aside>
+                  <div class="widget">
+                    <h4>Project information</h4>
+                    <ul class="project-detail">
+                      <li><label>Project name :</label>${demoApp.name}</li>
+                      <li><label>Category :</label>${demoApp.codeCategory.description}</li>
+                      <li><label>Project date :</label> 12 June 2013</li>
+                      <li><label>Project link :</label><a href=${demoApp.link}>${demoApp.link}</a></li>
+                      <li><label>Start :</label><a href="<@spring.url '/portfolio/start?code=${demoApp.code}'/>">portfolio/start</a></li>
+                      <li><label>Stop :</label><a href="<@spring.url '/portfolio/stop?code=${demoApp.code}'/>">portfolio/stop</a></li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            
               <div class="span8">
                 <!-- start flexslider -->
                 <div class="flexslider">
@@ -50,20 +66,7 @@
                 <div class="blank10"></div>
                 <p>${demoApp.description}</p>
               </div>
-              <div class="span4">
-                <aside>
-                  <div class="widget">
-                    <h4>Project information</h4>
-                    <ul class="project-detail">
-                      <li><label>Project name :</label>${demoApp.name}</li>
-                      <li><label>Category :</label>${demoApp.codeCategory.description}</li>
-                      <li><label>Project date :</label> 12 June 2013</li>
-                      <li><label>Project link :</label><a href=${demoApp.link}>${demoApp.link}</a></li>
-                    </ul>
-                  </div>
-                </aside>
-              </div>
-            </div>
+			</div>
           </article>
           <!-- end article full post -->
         </div>

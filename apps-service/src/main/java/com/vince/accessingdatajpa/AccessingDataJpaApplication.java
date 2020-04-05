@@ -78,20 +78,35 @@ public class AccessingDataJpaApplication {
 		log.info("-------------------------------");		
 		if(CollectionUtils.isEmpty(modelList)) {
 			log.info("DemoAppModel is empty.");
-			DemoAppModel demoAppModel = new DemoAppModel();
-			demoAppModel.setCode("PORTAL");
-			demoAppModel.setBriefDescription("Web app for managing all demo apps");
-			demoAppModel.setLink("http://localhost:8090/portal");
-			demoAppModel.setName("Portal");
-			demoAppModel.setDescription("Web app for managing all demo apps");
-			demoAppModel.setCodeCategory(categoryRepository.findById(1l));
-			
-			demoAppRepository.save(demoAppModel);
+			addPortal();
+			addFormSubmission();
 		}		
 		for (DemoAppModel each : demoAppRepository.findAll()) {
 			log.info(each.toString());
 		}
 		log.info("");
+	}
+	
+	private void addPortal() {
+		DemoAppModel demoAppModel = new DemoAppModel();
+		demoAppModel.setCode("PORTAL");
+		demoAppModel.setBriefDescription("Web app for managing all demo apps");
+		demoAppModel.setLink("http://localhost:8090/portal");
+		demoAppModel.setName("Portal");
+		demoAppModel.setDescription("Web app for managing all demo apps");
+		demoAppModel.setCodeCategory(categoryRepository.findById(1l));			
+		demoAppRepository.save(demoAppModel);
+	}
+	
+	private void addFormSubmission() {
+		DemoAppModel demoAppModel = new DemoAppModel();
+		demoAppModel.setCode("FORM-SUBMISSION");
+		demoAppModel.setBriefDescription("Web app for simple submission input to show");
+		demoAppModel.setLink("http://localhost:8091/form-submission");
+		demoAppModel.setName("Form submission");
+		demoAppModel.setDescription("Web app for simple submission input to show\"");
+		demoAppModel.setCodeCategory(categoryRepository.findById(1l));			
+		demoAppRepository.save(demoAppModel);
 	}
 
 }

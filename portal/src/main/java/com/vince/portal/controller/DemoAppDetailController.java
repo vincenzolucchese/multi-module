@@ -1,8 +1,20 @@
 package com.vince.portal.controller;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +30,32 @@ import com.vince.portal.abs.controller.AbstractDetailController;
 @Controller
 public class DemoAppDetailController extends AbstractDetailController {
 	
-	private static final String PAGE_RETURN 			= "demoAppDetail";
-	private static final String PAGE_RETURN_STATUS 		= "demoAppStatus";
+	private static final String PAGE_RETURN 			= "demoApp/demoAppDetail";
+	private static final String PAGE_RETURN_STATUS 		= "demoApp/demoAppStatus";
 	
-    @GetMapping({"/portfolio/detail"})
+	private HashMap<String, Process> mapProcess = new HashMap<>();
+
+    @GetMapping({"/portfolio/start"})
+    public String start(Model model,
+                        @RequestParam(value="code", required=true, defaultValue="World") String code) {
+        model.addAttribute("demoApp", demoAppFacade.findByCode(code));  
+        execute("start", code);
+       
+        return PAGE_RETURN_STATUS;
+    }
+    
+    @GetMapping({"/portfolio/stop"})
+    public String stop(Model model,
+                        @RequestParam(value="code", required=true, defaultValue="World") String code) {
+        model.addAttribute("demoApp", demoAppFacade.findByCode(code));  
+//        execute("stop");
+
+        mapProcess.get(code).destroy();
+        
+        return PAGE_RETURN_STATUS;
+    }
+	
+	@GetMapping({"/portfolio/detail"})
     public String hello(Model model,
                         @RequestParam(value="code", required=true, defaultValue="World") String code) {
         model.addAttribute("demoApp", demoAppFacade.findByCode(code));        
@@ -59,5 +93,65 @@ public class DemoAppDetailController extends AbstractDetailController {
 		}
 		
 		return map;
+    }
+    
+    //######################################################
+    //######################################################
+    //######################################################
+    
+    public void execute(String command, String code) {
+
+        ExecutorService pool = Executors.newSingleThreadExecutor();
+
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.directory(new File("../form-submission/"));
+    	// -- Linux --
+    	// Run a shell command
+        processBuilder.command("bash", "-c", "mvn spring-boot:"+command);
+    	// Run a shell script
+    	//processBuilder.command("path/to/hello.sh");
+
+    	// -- Windows --
+    	// Run a command
+    	//processBuilder.command("cmd.exe", "/c", "dir C:\\Users\\mkyong");
+    	// Run a bat file
+    	//processBuilder.command("C:\\Users\\mkyong\\hello.bat");
+
+        try {
+
+           Process process = processBuilder.start();
+           mapProcess.put(code, process);
+
+
+            System.out.println("process ping...");
+            ProcessReadTask task = new ProcessReadTask(process.getInputStream());
+            Future<List<String>> future = pool.submit(task);
+
+            List<String> result = future.get(5, TimeUnit.SECONDS);
+            for (String s : result) {
+                System.out.println(s);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           pool.shutdown();
+        }
+    }
+
+    private class ProcessReadTask implements Callable<List<String>> {
+
+        private InputStream inputStream;
+
+        public ProcessReadTask(InputStream inputStream) {
+            this.inputStream = inputStream;
+        }
+
+        @Override
+        public List<String> call() {
+            return new BufferedReader(new InputStreamReader(inputStream))
+				.lines()
+				.collect(Collectors.toList());
+        }
     }
 }

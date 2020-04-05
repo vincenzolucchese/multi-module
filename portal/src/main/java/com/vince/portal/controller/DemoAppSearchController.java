@@ -13,7 +13,7 @@ import com.vince.portal.abs.controller.AbstractSearchController;
 @RequestMapping("/portfolio")
 public class DemoAppSearchController extends AbstractSearchController {
 	
-	private static final String PAGE_RETURN 		= "demoAppSearch";
+	private static final String PAGE_RETURN 		= "demoApp/demoAppSearch";
 	
     @GetMapping({"/search"})
     public String hello(Model model) {
