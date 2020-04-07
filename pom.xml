@@ -16,7 +16,8 @@
         <module>portal</module>
         
         <module>form-submission</module>
-        
+        <module>client-ws-ssh</module>
+
     </modules>
 
 </project>
