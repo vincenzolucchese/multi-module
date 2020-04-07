@@ -1,20 +1,10 @@
 package com.vince.portal.controller;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,9 +38,8 @@ public class DemoAppDetailController extends AbstractDetailController {
     public String stop(Model model,
                         @RequestParam(value="code", required=true, defaultValue="World") String code) {
         model.addAttribute("demoApp", demoAppFacade.findByCode(code));  
-//        execute("stop");
-
         mapProcess.get(code).destroy();
+        mapProcess.remove(code);
         
         return PAGE_RETURN_STATUS;
     }
@@ -101,13 +90,13 @@ public class DemoAppDetailController extends AbstractDetailController {
     
     public void execute(String command, String code) {
 
-        ExecutorService pool = Executors.newSingleThreadExecutor();
+//        ExecutorService pool = Executors.newSingleThreadExecutor();
 
         ProcessBuilder processBuilder = new ProcessBuilder();
         processBuilder.directory(new File("../form-submission/"));
     	// -- Linux --
     	// Run a shell command
-        processBuilder.command("bash", "-c", "mvn spring-boot:"+command);
+        processBuilder.command("bash", "-c", "java -jar target/form-submission-0.0.1-SNAPSHOT.jar");
     	// Run a shell script
     	//processBuilder.command("path/to/hello.sh");
 
@@ -119,39 +108,14 @@ public class DemoAppDetailController extends AbstractDetailController {
 
         try {
 
-           Process process = processBuilder.start();
+           Process process = processBuilder.start();      
            mapProcess.put(code, process);
-
-
-            System.out.println("process ping...");
-            ProcessReadTask task = new ProcessReadTask(process.getInputStream());
-            Future<List<String>> future = pool.submit(task);
-
-            List<String> result = future.get(5, TimeUnit.SECONDS);
-            for (String s : result) {
-                System.out.println(s);
-            }
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-           pool.shutdown();
+//           pool.shutdown();
         }
     }
 
-    private class ProcessReadTask implements Callable<List<String>> {
-
-        private InputStream inputStream;
-
-        public ProcessReadTask(InputStream inputStream) {
-            this.inputStream = inputStream;
-        }
-
-        @Override
-        public List<String> call() {
-            return new BufferedReader(new InputStreamReader(inputStream))
-				.lines()
-				.collect(Collectors.toList());
-        }
-    }
 }

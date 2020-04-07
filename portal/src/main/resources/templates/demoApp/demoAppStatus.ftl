@@ -34,6 +34,7 @@
               <div class="span4">
                 <aside>
                   <div class="widget">
+                  <form action="<@spring.url '/portfolio/start'/>" method="post" role="form" class="contactForm" >
                     <h4>Project information</h4>
                     <ul class="project-detail">
                       <li><label>Project name :</label>${demoApp.name}</li>
@@ -43,6 +44,12 @@
                       <li><label>Start :</label><a href="<@spring.url '/portfolio/start?code=${demoApp.code}'/>">portfolio/start</a></li>
                       <li><label>Stop :</label><a href="<@spring.url '/portfolio/stop?code=${demoApp.code}'/>">portfolio/stop</a></li>
                     </ul>
+                    
+	                   <div class="form-group">
+		                 <button class="btn btn-color btn-rounded" type="submit">Send message</button>
+		               </div>
+	               </form>
+	               
                   </div>
                 </aside>
               </div>
