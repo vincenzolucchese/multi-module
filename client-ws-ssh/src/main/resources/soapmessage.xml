@@ -1,0 +1,14 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ric="http://ricevutapdf.p730.sanita.sogei.it/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ric:RicevutaPdf>
+         <DatiInputRichiesta>
+            <pinCode>txIO+4Z3DqZvxrol9o6KmkQjlWSD4SOLdeUigRadhoxVNv7rM3RytJlT1jCHdMEg337cD3D1bvYd/uFLeBT+uZzzZy67Rx5UlWD6bvqXlRQjAMxDH/oGcsxmLtBqLPe8i/ZHdiE1xgEPWj+OX6bOdZJOaQgCa9LY8WQaWOWSvbA=</pinCode>
+            <protocollo>20040817041311247</protocollo>
+            <opzionale1></opzionale1>
+            <opzionale2></opzionale2>
+            <opzionale3></opzionale3>
+         </DatiInputRichiesta>
+      </ric:RicevutaPdf>
+   </soapenv:Body>
+</soapenv:Envelope>
