@@ -1,0 +1,9 @@
+
+# PORTAL
+- fix on path for execute command run and stop process
+- db update from mix file sql and java
+- managing to do list in portal
+- managing fle upload for each app
+
+# CLIENT-WS-SSH
+- use java simmetric encryptionn

@@ -5,6 +5,8 @@ User: UXN6VMDD
 Password: P2SPDVF4
 Pincode: 1426073406
 Pincode cifrato: txIO+4Z3DqZvxrol9o6KmkQjlWSD4SOLdeUigRadhoxVNv7rM3RytJlT1jCHdMEg337cD3D1bvYd/uFLeBT+uZzzZy67Rx5UlWD6bvqXlRQjAMxDH/oGcsxmLtBqLPe8i/ZHdiE1xgEPWj+OX6bOdZJOaQgCa9LY8WQaWOWSvbA=
+<pinCode>	   : aFosS7Fge45p9y+6gYmwUYbOfCBkruVCTDtWITyx29sioX/zliwjA//7FYbNq8a+MSqhskQxsXauYVWnalFBZleKurYTf+3Qd3j+KmoUmZNVQMVRSDzw6UW2x7H/pE0daXiKKbFfY7/+jxF3vSkT2tLNzBO9cOm+XWJl+cYFaMw=
+
 cfProprietario: CCSRMO77A09H501E
 pIva: 03213213210
 CF proprietario cifrato: HKver8cExmJ9akjAPGC49ZvEq+Iglm9M5XmveC1/siETi7t4W+baC53vthafm4G6c5vhnFqkciJJV5GzsfqRuliUVMEKh7bcxvD4AQ6BE/dGz4ry+RprN3iok6HeINM+fipZIJJR9wQxRx784FgCT48nNSPkxrqqNg7rOX5D/8c=
