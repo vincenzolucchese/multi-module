@@ -80,6 +80,7 @@ public class AccessingDataJpaApplication {
 			log.info("DemoAppModel is empty.");
 			addPortal();
 			addFormSubmission();
+			addClientWs() ;
 		}		
 		for (DemoAppModel each : demoAppRepository.findAll()) {
 			log.info(each.toString());
@@ -106,6 +107,17 @@ public class AccessingDataJpaApplication {
 		demoAppModel.setName("Form submission");
 		demoAppModel.setDescription("Web app for simple submission input to show\"");
 		demoAppModel.setCodeCategory(categoryRepository.findById(1l));			
+		demoAppRepository.save(demoAppModel);
+	}
+	
+	private void addClientWs() {
+		DemoAppModel demoAppModel = new DemoAppModel();
+		demoAppModel.setCode("CLIENT-WS-SSH");
+		demoAppModel.setBriefDescription("Main app client ws for 'Tessera sanitaria ws by Sogei'");
+		demoAppModel.setLink("");
+		demoAppModel.setName("Client ws");
+		demoAppModel.setDescription("Main app client ws for 'Tessera sanitaria ws by Sogei'");
+		demoAppModel.setCodeCategory(categoryRepository.findById(2));			
 		demoAppRepository.save(demoAppModel);
 	}
 
