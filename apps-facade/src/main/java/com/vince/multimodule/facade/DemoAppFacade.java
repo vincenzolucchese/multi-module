@@ -8,5 +8,6 @@ public interface DemoAppFacade {
 	
 	public DemoAppData save(DemoAppData demoAppData);
 	public List<DemoAppData> search(DemoAppData demoAppData);
+	public DemoAppData findByCode(String code);
 
 }

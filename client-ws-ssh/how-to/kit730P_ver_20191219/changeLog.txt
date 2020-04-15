@@ -1,0 +1,6 @@
+- ver_20191219 aggiunto il campo "pagamentoTracciato":
+	1. modificato l'xsd della modalità asincrona, file TracciatiWS\WS_AsincronoInvioDati730\schemaFileAllegatoInvio\730_precompilata.xsd
+	2. modificato l'xsd del servizio sincrono, file TracciatiWS\WS_SincronoSingoloDato730\DocumentoSpesa730pSchema.xsd
+	3. aggiornati i progetti SoapUI in base al nuovo campo
+	4. aggiornati gli esmepi nella cartella TracciatiWS\EsempiFileXmlInvioAsincrono
+	5. aggiunta la cartella "SoggettoAltriProfessionisti" valida per tutte le categorie appartenenti ai Nuovi ordini DM 3/8/18

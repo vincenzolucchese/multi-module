@@ -1,4 +1,4 @@
-package com.vince.portal.application;
+package com.vince.portal.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

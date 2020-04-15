@@ -1,0 +1,2 @@
+$ openssl rsautl -encrypt -in CF.txt -out CF.enc -inkey SanitelCF.cer -certin -pkcs
+$ openssl base64 -base64 -in CF.enc -out CF64.txt
