@@ -1,7 +1,6 @@
 package com.example.springboot;
 
 import java.io.FileInputStream;
-import java.io.InputStream;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.PublicKey;
@@ -10,7 +9,6 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Base64;
 
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 
 import org.springframework.core.io.ClassPathResource;
