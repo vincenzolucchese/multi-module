@@ -1,21 +1,13 @@
 package com.example.springboot;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.security.PublicKey;
-import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
 import java.util.Base64;
-import java.util.Collection;
-import java.util.Iterator;
-
 import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
-
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 

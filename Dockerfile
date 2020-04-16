@@ -13,7 +13,7 @@ COPY gradle gradle
 COPY library library
 COPY portal portal
 
-RUN ./mvnw install -DskipTests
+RUN ./mvnw clean install -DskipTests
 RUN mkdir -p portal/target/dependency && (cd portal/target/dependency; jar -xf ../*.jar)
 
 FROM openjdk:8-jdk-alpine
