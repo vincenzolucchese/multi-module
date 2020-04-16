@@ -92,8 +92,12 @@ public class DemoAppDetailController extends AbstractDetailController {
 
 //        ExecutorService pool = Executors.newSingleThreadExecutor();
 
+        String cwd = System.getProperty("user.dir");
+        System.out.println("Current working directory : " + cwd);
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.directory(new File("../form-submission/"));
+        processBuilder.directory(new File(cwd + "/form-submission/"));
+        // LOCAL
+        //processBuilder.directory(new File("../form-submission/"));
     	// -- Linux --
     	// Run a shell command
         processBuilder.command("bash", "-c", "java -jar target/form-submission-0.0.1-SNAPSHOT.jar");

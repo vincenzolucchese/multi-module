@@ -5,6 +5,6 @@ All module starts from getting start of Spring
 
 
 ## docker
-docker run -p 8090:8090 1248163264128/multi-module-with-springboot
+docker run -p 8090:8090 -p 8091:8091 -t 1248163264128/multi-module-with-springboot
 
 docker run -ti --entrypoint /bin/sh 1248163264128/multi-module-with-springboot
